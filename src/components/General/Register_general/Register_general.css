@@ -1,0 +1,35 @@
+#basic-addon3 {
+  min-width: 200px;
+  display: flex;
+  justify-content:space-around;
+}
+
+#register_box {
+  /* border:  solid red 1px; */
+  /* height: 500px; */
+  width: 45%;
+
+  margin: auto;
+  margin-top: 50px;
+  padding: 5px;
+  padding-top: 50px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+}
+#register_outer {
+  width: 80%;
+  margin: auto;
+  /* background-image: url("https://thumbs.dreamstime.com/z/cat-dog-banner-16533511.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#log-reg-links {
+  /* border: solid red 1px; */
+  position: relative;
+  top: 100px;
+}
+
+#icons_png {
+  width: 40px;
+  height: 40px;
+}
