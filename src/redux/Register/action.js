@@ -8,19 +8,19 @@ export const REGISTER_LOADING = "REGISTER_LOADING";
 
 export const register_loading = () => {
   return {
-    type: LOGIN_LOADING,
+    type: REGISTER_LOADING,
   };
 };
 
 export const register_success = () => {
   return {
-    type: LOGIN_SUCCESS,
+    type: REGISTER_SUCCESS,
   };
 };
 
 export const register_failure = () => {
   return {
-    type: LOGIN_FAILURE,
+    type: REGISTER_FAILURE,
   };
 };
 
@@ -36,11 +36,11 @@ export const userRegister = (userdetails) => (dispatch) => {
 
       console.log("yeahhh, now dont forget to chech failures senarios");
 
-      dispatch(register_success(res.data.token));
+      dispatch(register_success());
     })
     .catch((error) => {
       //   dispatch(login_failure());
-      console.log("ufff... failed to log in");
+      console.log("ufff... failed to Register");
       if (error.responce) {
         alert(error.responce.message);
       }
