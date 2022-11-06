@@ -1,10 +1,10 @@
 #basic-addon3 {
   min-width: 200px;
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
-#reg_head{
+#reg_head {
   margin-top: 10px;
 }
 
@@ -18,6 +18,7 @@
   border-radius: 10px;
   background-size: cover;
   color: white;
+  min-height: 750px;
 }
 
 #register_box {

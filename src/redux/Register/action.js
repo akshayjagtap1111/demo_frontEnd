@@ -6,9 +6,10 @@ export const REGISTER_SUCCESS = "REGISTER SUCCESS";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
 export const REGISTER_LOADING = "REGISTER_LOADING";
 
-export const register_loading = () => {
+export const register_loading = (payload) => {
   return {
     type: REGISTER_LOADING,
+    payload: payload,
   };
 };
 
@@ -25,12 +26,17 @@ export const register_failure = () => {
 };
 
 export const userRegister = (userdetails) => (dispatch) => {
+  let url = "http://localhost:3000/user/register";
+
+  if (userdetails.role === "influencer") {
+    url = "http://localhost:3000/user/register-influencer";
+  }
   dispatch(register_loading());
 
   //here url for user and influencer will be dynamic
 
   axios
-    .post("http://localhost:5000/register", userdetails)
+    .post(url, userdetails)
     .then((res) => {
       console.log("Registered with  user details successfully");
 
@@ -47,4 +53,7 @@ export const userRegister = (userdetails) => (dispatch) => {
         alert(error.responce.message);
       }
     });
+
+
+  console.log(url)
 };

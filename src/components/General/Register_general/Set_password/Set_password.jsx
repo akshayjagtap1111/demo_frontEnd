@@ -1,7 +1,29 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { userRegister } from "../../../../redux/Register/action";
 import "./Set_password.css";
 
-export default function Set_password({ handle_inf_ac_flag }) {
+export default function Set_password({
+  handle_inf_ac_flag,
+  handle_reg_comp_state,
+  reg_comp_state,
+}) {
+  /////geting redux app states and dispatch functions
+
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const [pass, set_pass] = React.useState("");
+
+  const handle_pass = (e) => {
+    set_pass(e.target.value);
+  };
+
+  const handle_submit = () => {
+    dispatch(userRegister(reg_comp_state));
+  };
   return (
     <div>
       <div id="set_pass_cover">
@@ -12,7 +34,7 @@ export default function Set_password({ handle_inf_ac_flag }) {
               src="https://media.istockphoto.com/vectors/men-profile-icon-vector-id1152253495?b=1&k=20&m=1152253495&s=170667a&w=0&h=_t4ok-VGzfjg97kdjQnbcr4ime1BSPwJwHmPs4FDTs8="
               id="icons_png"
             />
-            Passward
+            Password
           </span>
           <input
             className="form-control"
@@ -20,10 +42,10 @@ export default function Set_password({ handle_inf_ac_flag }) {
             aria-describedby="basic-addon3"
             type="text"
             placeholder="Create Password"
-            name="username"
+            // name="username"
             required
-            // value={username}
-            // onChange={handleChange}
+            value={pass}
+            onChange={handle_pass}
           />
         </div>
 
@@ -33,7 +55,7 @@ export default function Set_password({ handle_inf_ac_flag }) {
               src="https://media.istockphoto.com/vectors/men-profile-icon-vector-id1152253495?b=1&k=20&m=1152253495&s=170667a&w=0&h=_t4ok-VGzfjg97kdjQnbcr4ime1BSPwJwHmPs4FDTs8="
               id="icons_png"
             />
-            Confirm Passward
+            Confirm Password
           </span>
           <input
             className="form-control"
@@ -41,10 +63,10 @@ export default function Set_password({ handle_inf_ac_flag }) {
             aria-describedby="basic-addon3"
             type="text"
             placeholder="Confirm Password"
-            name="username"
+            name="password"
             required
-            // value={username}
-            // onChange={handleChange}
+            value={reg_comp_state.password}
+            onChange={handle_reg_comp_state}
           />
         </div>
 
@@ -60,7 +82,7 @@ export default function Set_password({ handle_inf_ac_flag }) {
           className="btn btn-primary"
           name="next_btn"
           style={{ margin: 5 }}
-          // onClick={handle_inf_ac_flag}
+          onClick={handle_submit}
         >
           Submit
         </button>

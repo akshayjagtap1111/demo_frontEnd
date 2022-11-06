@@ -12,7 +12,33 @@ export default function Register_general() {
     show_password_setup: false,
   };
 
-  let [inf_ac_flag, set_inf_ac_flag] = React.useState(inf_ac_flag_init_state);
+  const [inf_ac_flag, set_inf_ac_flag] = React.useState(inf_ac_flag_init_state);
+
+  const reg_comp_init_state = {
+    name: "",
+    email: "",
+    role: "user",
+    username: "",
+    password: "",
+    phone: "",
+    instagram: "",
+    facebook: "",
+    linkedin: "",
+    youtube: "",
+  };
+
+  const [reg_comp_state, set_reg_comp_state] =
+    React.useState(reg_comp_init_state);
+
+  const { name, email, username } = reg_comp_state;
+
+  const handle_reg_comp_state = (e) => {
+    const { name, value } = e.target;
+
+    console.log("getting props");
+
+    set_reg_comp_state((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handle_inf_ac_flag = (e) => {
     // console.log(e)
@@ -30,12 +56,14 @@ export default function Register_general() {
         is_inf_flag: true,
         confirmed_flag: true,
       }));
+      set_reg_comp_state((prev) => ({ ...prev, role: "influencer" }));
     } else if (name == "no_btn") {
       set_inf_ac_flag((prev) => ({
         ...prev,
         Make_pop_visible: false,
         is_inf_flag: false,
         confirmed_flag: true,
+        show_password_setup: true
       }));
     } else if (name == "back_from_inf_set") {
       set_inf_ac_flag((prev) => ({
@@ -59,7 +87,11 @@ export default function Register_general() {
     <div>
       <div id="register_outer">
         {inf_ac_flag.show_password_setup ? (
-          <Set_password handle_inf_ac_flag={handle_inf_ac_flag} />
+          <Set_password
+            handle_inf_ac_flag={handle_inf_ac_flag}
+            handle_reg_comp_state={handle_reg_comp_state}
+            reg_comp_state={reg_comp_state}
+          />
         ) : (
           <div>
             <h4 id="reg_head">CREATE NEW ACCOUNT</h4>
@@ -78,9 +110,9 @@ export default function Register_general() {
                   aria-describedby="basic-addon3"
                   type="text"
                   placeholder="Enter Name"
-                  name="username"
-                  // value={username}
-                  // onChange={handleChange}
+                  name="name"
+                  value={name}
+                  onChange={handle_reg_comp_state}
                 />
               </div>
 
@@ -98,9 +130,9 @@ export default function Register_general() {
                   aria-describedby="basic-addon3"
                   type="text"
                   placeholder="Enter Email"
-                  name="username"
-                  // value={username}
-                  // onChange={handleChange}
+                  name="email"
+                  value={email}
+                  onChange={handle_reg_comp_state}
                 />
               </div>
 
@@ -119,11 +151,18 @@ export default function Register_general() {
                   type="text"
                   placeholder="Enter Username"
                   name="username"
-                  // value={username}
-                  // onChange={handleChange}
+                  value={username}
+                  onChange={handle_reg_comp_state}
                 />
               </div>
-              {inf_ac_flag.is_inf_flag ? <Influencer_setup /> : ""}
+              {inf_ac_flag.is_inf_flag ? (
+                <Influencer_setup
+                  handle_reg_comp_state={handle_reg_comp_state}
+                  reg_comp_state={reg_comp_state}
+                />
+              ) : (
+                ""
+              )}
 
               {inf_ac_flag.is_inf_flag ? (
                 <button

@@ -12,9 +12,10 @@ import {
     isRegistered:false,
   };
   
-  export const register_reducer = (state = initial_state, { type}) => {
+  export const register_reducer = (state = initial_state, { type,payload}) => {
     switch (type) {
       case REGISTER_LOADING:
+        
         return {
           ...state,
           loading: true,
