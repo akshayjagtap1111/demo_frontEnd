@@ -12,7 +12,7 @@ import {
     isRegistered:false,
   };
   
-  export const login_reducer = (state = initial_state, { type}) => {
+  export const register_reducer = (state = initial_state, { type}) => {
     switch (type) {
       case REGISTER_LOADING:
         return {

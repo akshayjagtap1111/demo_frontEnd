@@ -1,9 +1,4 @@
-import {
-  LOGIN_FAILURE,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
-  LOGIN_LOADING,
-} from "./action";
+import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGIN_LOADING } from "./action";
 
 const initial_state = {
   loading: false,

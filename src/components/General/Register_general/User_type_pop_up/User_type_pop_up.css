@@ -1,0 +1,19 @@
+#pop_up_cover{
+    height: 200px;
+    width: 400px;
+    margin: auto;
+    /* background-color:#fbf6ee; */
+background-color:#011e47;
+    
+    /* opacity: 0.9; */
+    position: fixed;
+    top: 15%;
+    left: 37%;
+    border-radius: 5px;
+    color: white;
+}
+
+#pop_up_head{
+    margin-top: 10px;
+    margin-bottom: 50px;
+}

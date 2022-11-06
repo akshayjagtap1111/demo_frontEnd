@@ -4,25 +4,36 @@
   justify-content:space-around;
 }
 
+#reg_head{
+  margin-top: 10px;
+}
+
+#register_outer {
+  width: 80%;
+  margin: auto;
+  background-image: url("https://img.freepik.com/free-vector/social-media-icons-background_23-2147511281.jpg?w=2000");
+  opacity: 0.7;
+  background-repeat: no-repeat;
+  padding-top: 20px;
+  border-radius: 10px;
+  background-size: cover;
+  color: white;
+}
+
 #register_box {
   /* border:  solid red 1px; */
   /* height: 500px; */
   width: 45%;
 
   margin: auto;
-  margin-top: 50px;
+  margin-top: 20px;
   padding: 5px;
   padding-top: 50px;
   border-radius: 5px;
   background-color: whitesmoke;
+  background-color: transparent;
 }
-#register_outer {
-  width: 80%;
-  margin: auto;
-  /* background-image: url("https://thumbs.dreamstime.com/z/cat-dog-banner-16533511.jpg"); */
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 #log-reg-links {
   /* border: solid red 1px; */
   position: relative;

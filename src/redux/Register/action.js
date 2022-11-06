@@ -27,6 +27,8 @@ export const register_failure = () => {
 export const userRegister = (userdetails) => (dispatch) => {
   dispatch(register_loading());
 
+  //here url for user and influencer will be dynamic
+
   axios
     .post("http://localhost:5000/register", userdetails)
     .then((res) => {

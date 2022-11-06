@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./components/General/Login/Login";
 import Home from "./components/Home/Home";
 import Register_admin from "./components/Admin/Register_admin/Register_admin";
-import Register_general from "./components/General/Register_general/Register_general";
+import Register_general from "./components/General/Register_general/Register_general_user/Register_general_user";
 import Admin_dashboard from "./components/Admin/Admin_dashboard/Admin_dashboard";
 import Inf_dashboard from "./components/Influencer/Inf_dashboard/Inf_dashboard";
 import Inf_profile from "./components/Influencer/Inf_profile/Inf_profile";
