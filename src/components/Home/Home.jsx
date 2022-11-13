@@ -189,7 +189,7 @@ export default function Home() {
             </div>
             <div id="video">
               <iframe
-                src="https://www.youtube.com/embed/n_FCrCQ6-bA"
+                src={el.link}
                 frameborder="0"
                 width={670}
                 height={340}
