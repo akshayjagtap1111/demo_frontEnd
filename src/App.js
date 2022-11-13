@@ -11,6 +11,7 @@ import Register_general from "./components/General/Register_general/Register_gen
 import Admin_dashboard from "./components/Admin/Admin_dashboard/Admin_dashboard";
 import Inf_dashboard from "./components/Influencer/Inf_dashboard/Inf_dashboard";
 import Inf_profile from "./components/Influencer/Inf_profile/Inf_profile";
+import Add_content from "./components/Influencer/Add_content/Add_content";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/inf-dashboard" element={<Inf_dashboard />}></Route>
         <Route path="/Admin-profile" element={<Admin_dashboard />}></Route>
         <Route path="/inf-profile" element={<Inf_profile />}></Route>
+        <Route path="/add-content" element={<Add_content />}></Route>
       </Routes>
     </div>
   );

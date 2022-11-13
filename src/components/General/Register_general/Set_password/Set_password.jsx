@@ -9,11 +9,12 @@ export default function Set_password({
   handle_reg_comp_state,
   reg_comp_state,
 }) {
-  /////geting redux app states and dispatch functions
-
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+  /////geting redux app states and dispatch functions
+
+  const glob_reg_state = useSelector((state) => state.register);
 
   const [pass, set_pass] = React.useState("");
 
@@ -24,6 +25,12 @@ export default function Set_password({
   const handle_submit = () => {
     dispatch(userRegister(reg_comp_state));
   };
+
+  console.log(glob_reg_state.isRegistered);
+
+  if (glob_reg_state.isRegistered) {
+    navigate("/login");
+  }
   return (
     <div>
       <div id="set_pass_cover">
@@ -40,7 +47,7 @@ export default function Set_password({
             className="form-control"
             id="basic-url"
             aria-describedby="basic-addon3"
-            type="text"
+            type="password"
             placeholder="Create Password"
             // name="username"
             required
@@ -61,12 +68,18 @@ export default function Set_password({
             className="form-control"
             id="basic-url"
             aria-describedby="basic-addon3"
-            type="text"
+            type="password"
             placeholder="Confirm Password"
             name="password"
             required
             value={reg_comp_state.password}
             onChange={handle_reg_comp_state}
+            // {pass==reg_comp_state.password?"":""}
+            style={
+              pass == reg_comp_state.password
+                ? { color: "green" }
+                : { color: "red" }
+            }
           />
         </div>
 

@@ -8,6 +8,7 @@ import thunk from "redux-thunk";
 
 import { login_reducer } from "./Login/reducer";
 import { register_reducer } from "./Register/reducer";
+import { get_profile_reducer } from "./Profile/reducer";
 
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -26,6 +27,7 @@ const enhancer = composeEnhancers(
 const rootreducer = combineReducers({
   login: login_reducer,
   register: register_reducer,
+  profile:get_profile_reducer
 });
 
 export const store = createStore(rootreducer, enhancer);

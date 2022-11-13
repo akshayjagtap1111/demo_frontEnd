@@ -1,0 +1,37 @@
+#nav_cover {
+    width: 80%;
+    margin: auto;
+    height: 50px;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  img{
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  #navsearch {
+    width: 300px;
+    display: flex;
+    border: salmon 1px solid;
+  }
+  
+  #nav_login_profile {
+    border: rgb(114, 250, 118) 1px solid;
+    width:200px ;
+    display: flex;
+  justify-content: space-around;
+  }
+  
+  #nav_login_profile img{
+      height: 100%;
+  }
+  
+  
+  #nav_login_profile p{
+      vertical-align: middle;
+      margin-top: 10px;
+  }
+

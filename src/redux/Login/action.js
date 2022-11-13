@@ -26,10 +26,16 @@ export const login_failure = () => {
 };
 
 export const userLogin = (userdetails) => (dispatch) => {
+  let url = "http://localhost:5000/user/login";
+
+  if (userdetails.role === "influencer") {
+    url = "http://localhost:5000/user/login-influencer";
+  }
+
   dispatch(login_loading());
 
   axios
-    .post("http://localhost:5000/login", userdetails)
+    .post(url, userdetails)
     .then((res) => {
       console.log("logged in with  user details successfully");
 
@@ -41,7 +47,7 @@ export const userLogin = (userdetails) => (dispatch) => {
     })
     .catch((error) => {
       dispatch(login_failure());
-      console.log("ufff... failed to log in");
+      console.log(error);
       if (error.responce) {
         alert(error.responce.message);
       }

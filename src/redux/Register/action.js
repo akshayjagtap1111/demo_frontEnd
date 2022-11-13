@@ -2,6 +2,7 @@ import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
 
+
 export const REGISTER_SUCCESS = "REGISTER SUCCESS";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
 export const REGISTER_LOADING = "REGISTER_LOADING";
@@ -26,10 +27,11 @@ export const register_failure = () => {
 };
 
 export const userRegister = (userdetails) => (dispatch) => {
-  let url = "http://localhost:3000/user/register";
+  let url = "http://localhost:5000/user/register";
+  console.log(userdetails);
 
   if (userdetails.role === "influencer") {
-    url = "http://localhost:3000/user/register-influencer";
+    url = "http://localhost:5000/user/register-influencer";
   }
   dispatch(register_loading());
 
@@ -45,15 +47,17 @@ export const userRegister = (userdetails) => (dispatch) => {
       console.log("yeahhh, now dont forget to chech failures senarios");
 
       dispatch(register_success());
+      
     })
     .catch((error) => {
       //   dispatch(login_failure());
       console.log("ufff... failed to Register");
+      console.log(error);
       if (error.responce) {
         alert(error.responce.message);
       }
+      return false;
     });
 
-
-  console.log(url)
+  console.log(url);
 };

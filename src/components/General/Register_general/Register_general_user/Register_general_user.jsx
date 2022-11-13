@@ -18,6 +18,7 @@ export default function Register_general() {
     name: "",
     email: "",
     role: "user",
+    bio: "",
     username: "",
     password: "",
     phone: "",
@@ -30,7 +31,7 @@ export default function Register_general() {
   const [reg_comp_state, set_reg_comp_state] =
     React.useState(reg_comp_init_state);
 
-  const { name, email, username } = reg_comp_state;
+  const { name, email, username, bio } = reg_comp_state;
 
   const handle_reg_comp_state = (e) => {
     const { name, value } = e.target;
@@ -63,7 +64,17 @@ export default function Register_general() {
         Make_pop_visible: false,
         is_inf_flag: false,
         confirmed_flag: true,
-        show_password_setup: true
+        show_password_setup: true,
+      }));
+
+      set_reg_comp_state((prev) => ({
+        ...prev,
+        role: "user",
+        phone: "",
+        instagram: "",
+        facebook: "",
+        linkedin: "",
+        youtube: "",
       }));
     } else if (name == "back_from_inf_set") {
       set_inf_ac_flag((prev) => ({
@@ -152,6 +163,26 @@ export default function Register_general() {
                   placeholder="Enter Username"
                   name="username"
                   value={username}
+                  onChange={handle_reg_comp_state}
+                />
+              </div>
+
+              <div className="input-group mb-3">
+                <span className="input-group-text" id="basic-addon3">
+                  <img
+                    src="https://media.istockphoto.com/vectors/men-profile-icon-vector-id1152253495?b=1&k=20&m=1152253495&s=170667a&w=0&h=_t4ok-VGzfjg97kdjQnbcr4ime1BSPwJwHmPs4FDTs8="
+                    id="icons_png"
+                  />{" "}
+                  Bio
+                </span>
+                <input
+                  className="form-control"
+                  id="basic-url"
+                  aria-describedby="basic-addon3"
+                  type="text"
+                  placeholder="About you"
+                  name="bio"
+                  value={bio}
                   onChange={handle_reg_comp_state}
                 />
               </div>
